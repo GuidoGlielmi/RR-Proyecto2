@@ -1,0 +1,92 @@
+/*
+1)position y display
+2)reglas de flexbox
+3)reglas de box-model
+4)background y border
+5)reglas de texto
+6)todo el resto
+ctrl+k+ctrl+c para comentar
+*/
+nav > img {
+  height: 20px;
+}
+nav > img, nav div div ul, nav div form{
+  padding:7px;
+}
+nav form{
+  box-sizing:border-box;
+}
+body {
+  background: rgb(236, 236, 236);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+a {
+  color: rgb(250, 235, 215);
+  text-decoration: none;
+  text-shadow: 0 0 3px rgb(37, 36, 36);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  padding: 7px;
+  text-shadow: 0 0 10px rgb(37, 36, 36);
+  color: rgb(212, 249, 255);
+  background-color: rgb(163, 104, 80);
+  box-shadow: 0 0 1px 0 rgb(75, 62, 48);
+}
+@media (max-width: 468px) {
+  nav div div {
+    order: 2;
+  }
+  .page-links {
+    display: initial;
+  }
+  .page-links li {
+    margin: 5px 0;
+  }
+}
+@media (max-width:233px){
+  nav {
+    justify-content: center;
+  }
+  nav div{
+    justify-content: center;
+  }
+}
+nav ul {
+  display: flex;
+  margin:0;
+}
+nav div img {
+  height: 10px;
+  vertical-align: text-bottom;
+}
+nav > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav li {
+  padding: 0 10px;
+}
+nav input,
+nav button {
+  /*Button e input estan alineados ya que tienen el mismo font size*/
+  padding: 2px;
+  float: left;
+  border: 0.6px solid rgb(212, 249, 255);
+}
+.container {
+  display: flex;
+}
+#hamburguer-menu {
+  display: none;
+}
