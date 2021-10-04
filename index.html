@@ -11,7 +11,7 @@
     <title>News Portal</title>
   </head>
   <body>
-    <nav class="between-container">
+    <nav class="container">
       <img
         class="main-logo"
         src="https://anthoncode.com/wp-content/uploads/2020/01/logo-batman-nolan-750x500.png"
@@ -28,9 +28,9 @@
           </button>
         </form>
         <ul class="container">
-          <li><a href="">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -55,7 +55,10 @@
             </small>
           </div>
           <p class="grey-font">
-            Posted <span class="bold">18 September 2021</span> 14:02 GMT
+            Posted
+            <time class="bold" datetime="2021-09-18T14:02:00"
+              >18 September 2021 14:02 GMT</time
+            >
           </p>
           <p class="grey-font">
             Read this post in <a>English</a>, <a>Malagasy</a>
@@ -224,10 +227,10 @@
           conduct a judicial review of the suspension order issued by IMDA.
         </p>
       </article>
-      <div class="side-article-L">
+      <aside class="side-article-L">
         <img
           src="https://www.topuniversities.com/sites/default/files/study_politics.jpg"
-          alt="poltic issue"
+          alt="politic issue"
         />
         <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
         <p>
@@ -236,9 +239,8 @@
           aspernatur quae accusantium ex sapiente inventore hic doloribus
           numquam, laboriosam corporis!
         </p>
-      </div>
-
-      <div class="side-article-R">
+      </aside>
+      <aside class="side-article-R">
         <img
           src="https://www.topuniversities.com/sites/default/files/study_politics.jpg"
           alt="Another politic issue"
@@ -249,91 +251,95 @@
           possimus similique animi eos earum nam ducimus natus debitis dolor
           dolores inventore porro eius culpa minus. Placeat nisi enim soluta.
         </p>
-      </div>
+      </aside>
     </main>
-    <div class="container audiovideo">
-      <audio controls muted loop>
-        <source src="Audios/19-gtr ac mic-190307_1742.wav" type="audio/wav" />
-        <p>
-          Your browser doesn't support HTML5 audio. Here is a
-          <a href="Audios/19-gtr ac mic-190307_1742.wav">link to the audio</a>
-          instead.
-        </p>
-      </audio>
-      <video controls autopictureinpicture>
-        <source
-          src="Videos/Clase derivada como función_2da parte(1).mp4"
-          type="video/mp4"
-        />
-        <p>
-          Your browser doesn't support HTML5 video. Here is a
-          <a href="Videos/Clase derivada como función_2da parte(1).mp4">link to the audio</a>
-          instead.
-        </p>
-      </video>
-    </div>
-    <h3 class="company-peoples-names">This company is composed by:</h3>
-    <table>
-      <tr>
-        <th>name</th>
-        <th>contact</th>
-        <th>country</th>
-      </tr>
-      <tr>
-        <td>alfreds futterkiste</td>
-        <td>3415123456</td>
-        <td>germany</td>
-      </tr>
-      <tr>
-        <td>guido glielmi</td>
-        <td>3415123456</td>
-        <td>mexico</td>
-      </tr>
-      <tr>
-        <td>ernst handel</td>
-        <td>3415123456</td>
-        <td>austria</td>
-      </tr>
-      <tr>
-        <td>jorge ruiz</td>
-        <td>3415123456</td>
-        <td>UK</td>
-      </tr>
-      <tr>
-        <td>pedro picapiedra</td>
-        <td>3415123456</td>
-        <td>canada</td>
-      </tr>
-      <tr>
-        <td>magazzini mascarpone</td>
-        <td>3415123456</td>
-        <td>italy</td>
-      </tr>
-    </table>
+    <section id="about">
+      <div class="container audiovideo">
+        <audio controls muted loop>
+          <source src="Audios/19-gtr ac mic-190307_1742.wav" type="audio/wav" />
+          <p>
+            Your browser doesn't support HTML5 audio. Here is a
+            <a href="Audios/19-gtr ac mic-190307_1742.wav">link to the audio</a>
+            instead.
+          </p>
+        </audio>
+        <video controls>
+          <source
+            src="Videos/Clase derivada como función_2da parte(1).mp4"
+            type="video/mp4"
+          />
+          <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="Videos/Clase derivada como función_2da parte(1).mp4"
+              >link to the audio</a
+            >
+            instead.
+          </p>
+        </video>
+      </div>
+      <h3 class="company-peoples-names">This company is composed by:</h3>
+      <table id="contact">
+        <tr>
+          <th>name</th>
+          <th>contact</th>
+          <th>country</th>
+        </tr>
+        <tr>
+          <td>alfreds futterkiste</td>
+          <td>3415123456</td>
+          <td>germany</td>
+        </tr>
+        <tr>
+          <td>guido glielmi</td>
+          <td>3415123456</td>
+          <td>mexico</td>
+        </tr>
+        <tr>
+          <td>ernst handel</td>
+          <td>3415123456</td>
+          <td>austria</td>
+        </tr>
+        <tr>
+          <td>jorge ruiz</td>
+          <td>3415123456</td>
+          <td>UK</td>
+        </tr>
+        <tr>
+          <td>pedro picapiedra</td>
+          <td>3415123456</td>
+          <td>canada</td>
+        </tr>
+        <tr>
+          <td>magazzini mascarpone</td>
+          <td>3415123456</td>
+          <td>italy</td>
+        </tr>
+      </table>
+    </section>
     <footer class="container">
       <div class="container">
         <div class="footer-element">
           <h3>politics</h3>
           <ul>
-            <li><a href="">elections</a></li>
-            <li><a href="">international relations</a></li>
-            <li><a href="">congress</a></li>
+            <li><a href="index.html">elections</a></li>
+            <li><a href="index.html">international relations</a></li>
+            <li><a href="index.html">congress</a></li>
           </ul>
         </div>
         <div class="footer-element">
           <h3>economy</h3>
           <ul>
-            <li><a href="">dollar</a></li>
-            <li><a href="">crypto Currency</a></li>
-            <li><a href="">inversions</a></li>
+            <li><a href="index.html">dollar</a></li>
+            <li><a href="index.html">crypto Currency</a></li>
+            <li><a href="index.html">inversions</a></li>
           </ul>
         </div>
         <div class="footer-element">
           <h3>entertainment</h3>
           <ul>
-            <li><a href="">t.v. shows</a></li>
-            <li><a href="">theather</a></li>
-            <li><a href="">movies</a></li>
+            <li><a href="index.html">t.v. shows</a></li>
+            <li><a href="index.html">theather</a></li>
+            <li><a href="index.html">movies</a></li>
           </ul>
         </div>
       </div>

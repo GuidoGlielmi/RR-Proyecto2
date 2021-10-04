@@ -1,20 +1,11 @@
-/*
-1)position y display
-2)reglas de flexbox
-3)reglas de box-model
-4)background y border
-5)reglas de texto
-6)todo el resto
-ctrl+k+ctrl+c para comentar
-*/
+
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 200;
-  font-size:11px;
+  font-size: 11px;
   background: rgb(219, 219, 219);
 }
 ul {
@@ -26,8 +17,15 @@ a {
   text-decoration: none;
   text-shadow: inherit;
 }
-nav {/*se deberia acomodar al tamaño de los hijos*/
-  display: flex;
+main {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+article {
+  width: 100%; /*sin esta propiedad el width no se reduce mas que 460.8px*/
+  max-width: 460.8px;
+}
+nav {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -38,8 +36,41 @@ nav {/*se deberia acomodar al tamaño de los hijos*/
   background-color: rgb(187, 215, 216);
   box-shadow: 0 0 1.2px 0 rgb(0, 0, 0);
 }
+blockquote {
+  margin: 0;
+  background-image: url(https://s3.amazonaws.com/static.globalvoices/img/tmpl/quote-l-64.png);
+  background-repeat: no-repeat;
+  background-size: 1.3rem;
+  background-position: 0.75rem 0.75rem;
+  background-color: #ededed;
+}
+audio {
+  width: 60%;
+}
+video {
+  width: 80%;
+}
+table,
+audio,
+video {
+  margin: 5px auto 30px;
+}
+th {
+  border: black solid 1px;
+}
+td,
+th {
+  padding: 3px;
+}
+footer {
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ededed;
+  overflow: auto;
+  background: rgb(44, 44, 44);
+}
 .main-logo {
-  width:16vw;
+  width: 14vw;
 }
 .main-logo,
 nav ul,
@@ -60,23 +91,13 @@ nav li {
 }
 nav input,
 nav button {
-  padding: 2px;
   flex-grow: 1;
+  padding: 2px;
   border: 0.2px solid rgb(53, 53, 53);
   background: rgb(236, 236, 236);
 }
-main, article, body{
-  width: 100%;
-}
-main {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-article{
-  max-width: 460.8px;
-}
-div[class^="side-article"] {
-  max-width:153.6px;
+aside[class^="side-article"] {
+  max-width: 153.6px;
 }
 main > * {
   padding: 30px;
@@ -84,89 +105,51 @@ main > * {
 .container {
   display: flex;
 }
-div.profile.container{
+div.profile.container {
   align-items: center;
 }
 .profile > * {
   margin: 7px;
 }
-.column-container {
-  display: flex;
-  flex-direction: column;
-}
 .profile img {
   border-radius: 50%;
 }
-.profile small{
+.profile small {
   display: flex;
   flex-direction: column;
 }
 .header-img {
-  width: 100%;
   margin: auto;
 }
 .header-img img {
   width: 100%;
 }
 .header-img figcaption {
-  background-color: rgb(133, 133, 133);
   padding: 10px;
+  background-color: rgb(133, 133, 133);
 }
-blockquote{
-  background-image: url(https://s3.amazonaws.com/static.globalvoices/img/tmpl/quote-l-64.png);
-  background-repeat: no-repeat;
-  background-size: 1.5rem;
-  background-position: .75rem .75rem;
-  background-color: #ededed;
-  margin:0;
+blockquote p {
+  padding: 10px 30px;
 }
-blockquote p{
-  padding:10px 30px;
-}
-.twitter-tweet{
-  margin:auto;
-}
-div[class^="side-article"] img{
-  width:100%;
+aside[class^="side-article"] img {
+  width: 100%;
 }
 .company-peoples-names {
-  padding:0;
+  padding: 0;
   text-align: center;
 }
 .container.audiovideo {
   flex-direction: column;
   justify-content: center;
 }
-table, audio, video {
-  margin:5px auto 30px;
-}
-audio{
-  width: 60%;
-}
-video {
-  width:80%;
-}
 table * {
   text-transform: capitalize;
-}
-th{
-  border: black solid 1px;
-}
-td, th{
-  padding:3px;
 }
 tr:nth-child(even) {
   background-color: #acacac;
 }
-footer{
-  flex-direction: column;
-  justify-content: space-between;
-  overflow:auto;
-  background: rgb(44, 44, 44);
-  color: #ededed;
-}
 footer > * {
-  margin:50px 0 5px;
+  margin: 50px 0 5px;
   text-transform: capitalize;
 }
 footer > .container {
@@ -175,24 +158,23 @@ footer > .container {
 .footer-element {
   margin: 15px;
 }
-.final-tag{
+.final-tag {
   text-align: center;
 }
-
 @media (min-width: 768px) {
   body {
-    font-size:16px;
+    font-size: 16px;
   }
-  main{
+  main {
     flex-wrap: nowrap;
   }
   nav form img {
     width: 20px;
   }
   .profile img {
-    flex-shrink:0;
+    flex-shrink: 0;
   }
-  .between-container {
+  nav.container {
     justify-content: space-between;
   }
   nav form {
@@ -203,8 +185,8 @@ footer > .container {
     order: 2;
     max-width: none;
   }
-  div[class^="side-article"]{
-    max-width:none;
+  aside[class^="side-article"] {
+    max-width: none;
     flex-grow: 1;
   }
   .side-article-L {
@@ -215,10 +197,13 @@ footer > .container {
   }
 }
 @media (min-width: 1200px) {
-  body{
+  body {
     font-size: 25px;
   }
   nav form img {
     width: 30px;
+  }
+  aside[class^="side-article"] {
+    max-width: 400px;
   }
 }
