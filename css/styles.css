@@ -128,6 +128,29 @@ blockquote p{
 div[class^="side-article"] img{
   width:100%;
 }
+.company-peoples-names {
+  padding:0;
+  text-align: center;
+}
+.container.audiovideo {
+  flex-direction: column;
+  justify-content: center;
+}
+table, audio, video {
+  margin:5px auto 30px;
+}
+table * {
+  text-transform: capitalize;
+}
+th{
+  border: black solid 1px;
+}
+td, th{
+  padding:3px;
+}
+tr:nth-child(even) {
+  background-color: #acacac;
+}
 footer{
   flex-direction: column;
   justify-content: space-between;
