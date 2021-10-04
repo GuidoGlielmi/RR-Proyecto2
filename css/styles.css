@@ -12,10 +12,10 @@ ctrl+k+ctrl+c para comentar
 }
 
 body {
-  background: rgb(219, 219, 219);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 200;
   font-size:11px;
+  background: rgb(219, 219, 219);
 }
 ul {
   padding: 0;
@@ -44,12 +44,11 @@ nav {/*se deberia acomodar al tamaño de los hijos*/
 .main-logo,
 nav ul,
 nav form {
-  padding: 7px 12px;
+  padding: 4px 12px;
   margin: 0;
 }
 nav form img {
-  width: 2vw;
-  vertical-align: text-bottom;
+  width: 10px;
 }
 nav > div {
   justify-content: center;
@@ -85,6 +84,9 @@ main > * {
 .container {
   display: flex;
 }
+div.profile.container{
+  align-items: center;
+}
 .profile > * {
   margin: 7px;
 }
@@ -93,7 +95,6 @@ main > * {
   flex-direction: column;
 }
 .profile img {
-  width: 10vw;
   border-radius: 50%;
 }
 .profile small{
@@ -108,7 +109,7 @@ main > * {
   width: 100%;
 }
 .header-img figcaption {
-  background-color: rgb(32, 31, 31);
+  background-color: rgb(133, 133, 133);
   padding: 10px;
 }
 blockquote{
@@ -138,6 +139,12 @@ div[class^="side-article"] img{
 }
 table, audio, video {
   margin:5px auto 30px;
+}
+audio{
+  width: 60%;
+}
+video {
+  width:80%;
 }
 table * {
   text-transform: capitalize;
@@ -179,13 +186,16 @@ footer > .container {
   main{
     flex-wrap: nowrap;
   }
-  .main-logo {
-    width: 11vw;
+  nav form img {
+    width: 20px;
+  }
+  .profile img {
+    flex-shrink:0;
   }
   .between-container {
     justify-content: space-between;
   }
-  nav div form {
+  nav form {
     order: 3;
   }
   article {
@@ -193,15 +203,14 @@ footer > .container {
     order: 2;
     max-width: none;
   }
-  div[class^="side-article"] {
+  div[class^="side-article"]{
     max-width:none;
+    flex-grow: 1;
   }
   .side-article-L {
-    flex-grow: 1;
     order: 1;
   }
   .side-article-R {
-    flex-grow: 1;
     order: 3;
   }
 }
@@ -209,5 +218,7 @@ footer > .container {
   body{
     font-size: 25px;
   }
-  
+  nav form img {
+    width: 30px;
+  }
 }
