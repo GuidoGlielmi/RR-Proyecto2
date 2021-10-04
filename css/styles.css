@@ -7,10 +7,15 @@
 6)todo el resto
 ctrl+k+ctrl+c para comentar
 */
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: rgb(219, 219, 219);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 200;
+  font-size:11px;
 }
 ul {
   padding: 0;
@@ -21,30 +26,29 @@ a {
   text-decoration: none;
   text-shadow: inherit;
 }
-nav {
+nav {/*se deberia acomodar al tamaño de los hijos*/
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   position: sticky;
   top: 0;
-  padding: 7px;
   text-shadow: 0 0 0.5px rgb(0, 0, 0);
   color: rgb(44, 44, 44);
   background-color: rgb(187, 215, 216);
   box-shadow: 0 0 1.2px 0 rgb(0, 0, 0);
 }
-nav > img {
-  height: 20px;
+.main-logo {
+  width:16vw;
 }
-nav > img,
-nav div div ul,
-nav div form {
+.main-logo,
+nav ul,
+nav form {
   padding: 7px 12px;
   margin: 0;
 }
-nav div img {
-  height: 10px;
+nav form img {
+  width: 2vw;
   vertical-align: text-bottom;
 }
 nav > div {
@@ -57,9 +61,130 @@ nav li {
 }
 nav input,
 nav button {
-  /*Button e input estan alineados ya que tienen el mismo font size*/
   padding: 2px;
-  float: left;
+  flex-grow: 1;
   border: 0.2px solid rgb(53, 53, 53);
   background: rgb(236, 236, 236);
+}
+main, article, body{
+  width: 100%;
+}
+main {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+article{
+  max-width: 460.8px;
+}
+div[class^="side-article"] {
+  max-width:153.6px;
+}
+main > * {
+  padding: 30px;
+}
+.container {
+  display: flex;
+}
+.profile > * {
+  margin: 7px;
+}
+.column-container {
+  display: flex;
+  flex-direction: column;
+}
+.profile img {
+  width: 10vw;
+  border-radius: 50%;
+}
+.profile small{
+  display: flex;
+  flex-direction: column;
+}
+.header-img {
+  width: 100%;
+  margin: auto;
+}
+.header-img img {
+  width: 100%;
+}
+.header-img figcaption {
+  background-color: rgb(32, 31, 31);
+  padding: 10px;
+}
+blockquote{
+  background-image: url(https://s3.amazonaws.com/static.globalvoices/img/tmpl/quote-l-64.png);
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: .75rem .75rem;
+  background-color: #ededed;
+  margin:0;
+}
+blockquote p{
+  padding:10px 30px;
+}
+.twitter-tweet{
+  margin:auto;
+}
+div[class^="side-article"] img{
+  width:100%;
+}
+footer{
+  flex-direction: column;
+  justify-content: space-between;
+  overflow:auto;
+  background: rgb(44, 44, 44);
+  color: #ededed;
+}
+footer > * {
+  margin:50px 0 5px;
+  text-transform: capitalize;
+}
+footer > .container {
+  justify-content: center;
+}
+.footer-element {
+  margin: 15px;
+}
+.final-tag{
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size:16px;
+  }
+  main{
+    flex-wrap: nowrap;
+  }
+  .main-logo {
+    width: 11vw;
+  }
+  .between-container {
+    justify-content: space-between;
+  }
+  nav div form {
+    order: 3;
+  }
+  article {
+    flex-grow: 3;
+    order: 2;
+    max-width: none;
+  }
+  div[class^="side-article"] {
+    max-width:none;
+  }
+  .side-article-L {
+    flex-grow: 1;
+    order: 1;
+  }
+  .side-article-R {
+    flex-grow: 1;
+    order: 3;
+  }
+}
+@media (min-width: 1200px) {
+  body{
+    font-size: 25px;
+  }
+  
 }
