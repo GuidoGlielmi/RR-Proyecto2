@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="RR-semana-2">
+    <link rel="stylesheet" href="RR-semana-2" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Portal de Noticias</title>
+    <title>News Portal</title>
   </head>
   <body>
     <nav class="between-container">
       <img
+        class="main-logo"
         src="https://anthoncode.com/wp-content/uploads/2020/01/logo-batman-nolan-750x500.png"
-        alt="webpage"
+        alt="brand logo"
       />
       <div class="container">
-        <form class="nav-div" action="">
+        <form class="container" action="">
           <input type="search" placeholder="Search..." name="search" />
           <button type="submit">
             <img
@@ -26,17 +27,15 @@
             />
           </button>
         </form>
-        <div>
-          <ul class="page-links nav-div container">
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-          </ul>
-        </div>
+        <ul class="container">
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
       </div>
     </nav>
     <main class="container">
-      <article class="main-article">
+      <article>
         <header>
           <h1>
             Singapore’s The Online Citizen news website stops operating after
@@ -50,8 +49,10 @@
               src="https://secure.gravatar.com/avatar/3ccc84105aa3fee39acde48742b3befe?s=64&d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G"
               alt="Mong Palatino profile image"
             />
-            <p class="grey-font">Written by</p>
-            <p class="big-size-font">Mong Palatino</p>
+            <small>
+              <p class="grey-font">Written by</p>
+              <p class="big-size-font">Mong Palatino</p>
+            </small>
           </div>
           <p class="grey-font">
             Posted <span class="bold">18 September 2021</span> 14:02 GMT
@@ -59,7 +60,7 @@
           <p class="grey-font">
             Read this post in <a>English</a>, <a>Malagasy</a>
           </p>
-          <figure id="header-img">
+          <figure class="header-img">
             <img
               src="https://globalvoices.org/wp-content/uploads/2021/09/toc.jpg"
               alt="The Online Citizen logo"
@@ -223,25 +224,70 @@
           conduct a judicial review of the suspension order issued by IMDA.
         </p>
       </article>
-      <div class="side-article">
-        <img src="" alt="">
-        <h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h3>
+      <div class="side-article-L">
+        <img
+          src="https://www.topuniversities.com/sites/default/files/study_politics.jpg"
+          alt="poltic issue"
+        />
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non iste atque mollitia quisquam dolorum eius odio laborum possimus! Vel aspernatur quae accusantium ex sapiente inventore hic doloribus numquam, laboriosam corporis!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non iste
+          atque mollitia quisquam dolorum eius odio laborum possimus! Vel
+          aspernatur quae accusantium ex sapiente inventore hic doloribus
+          numquam, laboriosam corporis!
         </p>
       </div>
 
-      <div class="side-article">
-        <img src="" alt="">
-        <h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h3>
+      <div class="side-article-R">
+        <img
+          src="https://www.topuniversities.com/sites/default/files/study_politics.jpg"
+          alt="Another politic issue"
+        />
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, deleniti possimus similique animi eos earum nam ducimus natus debitis dolor dolores inventore porro eius culpa minus. Placeat nisi enim soluta.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, deleniti
+          possimus similique animi eos earum nam ducimus natus debitis dolor
+          dolores inventore porro eius culpa minus. Placeat nisi enim soluta.
         </p>
       </div>
+      <audio
+        src="Audios/19-gtr ac mic-190307_1742"
+        style="display: none"
+      ></audio>
+      <video
+        src="Videos/Clase derivada como función_2da parte(1).mp4"
+        style="display: none"
+      ></video>
+      <table style="display: none"></table>
     </main>
+    <footer class="container">
+      <div class="container">
+        <div class="footer-element">
+          <h3>politics</h3>
+          <ul>
+            <li><a href="">elections</a></li>
+            <li><a href="">international relations</a></li>
+            <li><a href="">congress</a></li>
+          </ul>
+        </div>
+        <div class="footer-element">
+          <h3>economy</h3>
+          <ul>
+            <li><a href="">dollar</a></li>
+            <li><a href="">crypto Currency</a></li>
+            <li><a href="">inversions</a></li>
+          </ul>
+        </div>
+        <div class="footer-element">
+          <h3>entertainment</h3>
+          <ul>
+            <li><a href="">t.v. shows</a></li>
+            <li><a href="">theather</a></li>
+            <li><a href="">movies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="final-tag">All rights reserved</div>
+    </footer>
   </body>
 </html>
