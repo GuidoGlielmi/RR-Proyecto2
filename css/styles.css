@@ -20,12 +20,13 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
-article {
+article,
+aside {
   width: 100%; /*sin esta propiedad el width no se reduce mas que 460.8px*/
   max-width: 460.8px;
 }
 nav {
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   position: sticky;
@@ -73,7 +74,8 @@ footer {
 }
 .main-logo,
 nav ul,
-nav form {
+nav form,
+nav a {
   padding: 4px 12px;
   margin: 0;
 }
@@ -95,11 +97,11 @@ nav button {
   border: 0.2px solid rgb(53, 53, 53);
   background: rgb(236, 236, 236);
 }
-aside {
-  max-width: 153.6px;
-}
 main > * {
   padding: 30px;
+}
+nav ul.container {
+  display: none;
 }
 .container {
   display: flex;
@@ -164,29 +166,29 @@ footer > .container {
   body {
     font-size: 16px;
   }
-  main {
-    flex-wrap: nowrap;
+  article {
+    order: 2;
   }
-  nav form img {
-    width: 20px;
-  }
-  .profile img {
-    flex-shrink: 0;
+  aside {
+    max-width: 280px;
   }
   nav.container {
     justify-content: space-between;
   }
+  nav form img {
+    width: 20px;
+  }
+  .hamburguer-icon {
+    display: none;
+  }
+  nav ul.container {
+    display: flex;
+  }
+  .profile img {
+    flex-shrink: 0;
+  }
   nav form {
     order: 3;
-  }
-  article {
-    flex-grow: 3;
-    order: 2;
-    max-width: none;
-  }
-  aside {
-    max-width: none;
-    flex-grow: 1;
   }
   .side-article-L {
     order: 1;
@@ -199,10 +201,18 @@ footer > .container {
   body {
     font-size: 25px;
   }
-  nav form img {
-    width: 30px;
+  main {
+    flex-wrap: nowrap;
+  }
+  article {
+    flex-grow: 3;
+    max-width: none;
   }
   aside {
-    max-width: 400px;
+    max-width: 375px;
+    flex-grow: 1;
+  }
+  nav form img {
+    width: 30px;
   }
 }
