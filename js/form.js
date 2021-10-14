@@ -2,23 +2,45 @@ function formError(e) {
   //e es el tag de html
   let string = e.target.value;
   if (e.target.id === "name") {
-   
+    if (string.length < 6 || specialCharValidator(string, 1, " ")) {
+      document.querySelector(".name-error").innerHTML = "Ingrese Nombre y Apellido";
+    }
   } else if (e.target.id === "email") {
-   
+    if (specialCharValidator(string, 1, "@", ".")) {
+      document.querySelector(".email-error").innerHTML = "Ingrese un formato de email válido";
+    }
   } else if (e.target.id === "password") {
-   
+    if (string.length < 8 || numAndCharValidator(string)) {
+      document.querySelector(".password-error").innerHTML = "La contraseña debe contener números y letras con mas de ocho caracteres ";
+    }
   } else if (e.target.id === "age") {
-   
+    if (string !== Math.round(string) || string < 18) { // Math.round funciona con strings
+      document.querySelector(".age-error").innerHTML = "Ingrese un número entero mayor a 18";
+    }
   } else if (e.target.id === "tel-number") {
-    
+    if (string.length < 7 || specialCharValidator(string, 0, "(", ")", " ", "-") || isNaN(string)) {
+      document.querySelector(".tel-error").innerHTML = 'Ingrese 8 o más números sin espacios, paréntesis o guiones';
+    }
   } else if (e.target.id === "address") {
-   
+    if (
+      string.length < 5 ||
+      specialCharValidator(string, 1, " ") ||
+      numAndCharValidator(string)
+    ) {
+      document.querySelector(".address-error").innerHTML = "Ingrese una dirección y un número";
+    }
   } else if (e.target.id === "city") {
-    
+    if (string.length < 3) {
+      document.querySelector(".city-error").innerHTML = "Ingrese una ciudad válida";
+    }
   } else if (e.target.id === "zip-code") {
-   
+    if (string.length < 3) {
+      document.querySelector(".zip-code-error").innerHTML = "Ingrese un código postal válido";
+    }
   } else if (e.target.id === "dni") {
-   
+    if (string.length !== 7 || string.length !== 8 || isNaN(string)) {
+      document.querySelector(".dni-error").innerHTML = "Ingrese un DNI válido";
+    }
   }
 }
 function formCorrect(e) {
