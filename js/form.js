@@ -42,7 +42,39 @@ function formCorrect(e) {
     document.querySelector(".dni-error").innerHTML = "";
   }
 }
-
+function numAndCharValidator(string) {
+  let countN = 0;
+  let countC = 0;
+  for (let char of string) {
+    if (isNaN(char)) {
+      countC++;
+    } else {
+      countN++;
+    }
+  }
+  console.log("asd"+countC)
+  console.log("asd"+countN)
+  if (countN !== 0 && countC !== 0) {
+    return false;
+  }
+  return true; //si no hay numero ó no hay caracter caracter
+}
+function specialCharValidator(string, includeOrExclude, ...specialChar) {
+  //analiza si HAY error
+  let count = 0;
+  for (let n of specialChar) {
+    if (string.indexOf(n) !== -1) {
+      count++; //si está el caracter, suma count
+    }
+  }
+  if (!includeOrExclude && count !== 0) {
+    return true;
+  }
+  if (includeOrExclude && count !== specialChar.length) {
+    return true;
+  }
+  return false;
+}
 var formName = document.getElementById("name");
 var formEmail = document.getElementById("email");
 var formPassword = document.getElementById("password");
