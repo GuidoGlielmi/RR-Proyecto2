@@ -65,6 +65,7 @@ function formCorrect(e) {
   }
 }
 function numAndCharValidator(string) {
+  //analiza si HAY error
   let countN = 0;
   let countC = 0;
   for (let char of string) {
@@ -74,12 +75,10 @@ function numAndCharValidator(string) {
       countN++;
     }
   }
-  console.log("asd"+countC)
-  console.log("asd"+countN)
   if (countN !== 0 && countC !== 0) {
     return false;
   }
-  return true; //si no hay numero ó no hay caracter caracter
+  return true;
 }
 function specialCharValidator(string, includeOrExclude, ...specialChar) {
   //analiza si HAY error
@@ -126,3 +125,6 @@ formAddress.addEventListener("click", formCorrect);
 formCity.addEventListener("click", formCorrect);
 formZipCode.addEventListener("click", formCorrect);
 formDni.addEventListener("click", formCorrect);
+
+var formH1 = document.getElementById("h1");
+formName.addEventListener("input", () => formH1.innerHTML = formName.value);
