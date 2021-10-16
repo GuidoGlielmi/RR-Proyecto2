@@ -1,25 +1,33 @@
 function formError(e) {
   //e es el tag de html
+  let error;
   let string = e.target.value;
   if (e.target.id === "name") {
     if (string.length < 6 || specialCharValidator(string, 1, " ")) {
-      document.querySelector(".name-error").innerHTML = "Ingrese Nombre y Apellido";
+      nameError.innerHTML = error = "Ingrese Nombre y Apellido";
     }
   } else if (e.target.id === "email") {
     if (specialCharValidator(string, 1, "@", ".")) {
-      document.querySelector(".email-error").innerHTML = "Ingrese un formato de email válido";
+      emailError.innerHTML = error = "Ingrese un formato de email válido";
     }
   } else if (e.target.id === "password") {
     if (string.length < 8 || numAndCharValidator(string)) {
-      document.querySelector(".password-error").innerHTML = "La contraseña debe contener números y letras con mas de ocho caracteres ";
+      passwordError.innerHTML = error =
+        "La contraseña debe contener números y letras con mas de ocho caracteres ";
     }
   } else if (e.target.id === "age") {
-    if (string !== Math.round(string) || string < 18) { // Math.round funciona con strings
-      document.querySelector(".age-error").innerHTML = "Ingrese un número entero mayor a 18";
+    if (string !== Math.round(string) || string < 18) {
+      // Math.round funciona con strings
+      ageError.innerHTML = error = "Ingrese un número entero mayor a 18";
     }
   } else if (e.target.id === "tel-number") {
-    if (string.length < 7 || specialCharValidator(string, 0, "(", ")", " ", "-") || isNaN(string)) {
-      document.querySelector(".tel-error").innerHTML = 'Ingrese 8 o más números sin espacios, paréntesis o guiones';
+    if (
+      string.length < 7 ||
+      specialCharValidator(string, 0, "(", ")", " ", "-") ||
+      isNaN(string)
+    ) {
+      telephoneError.innerHTML = error =
+        "Ingrese 8 o más números sin espacios, paréntesis o guiones";
     }
   } else if (e.target.id === "address") {
     if (
@@ -27,41 +35,43 @@ function formError(e) {
       specialCharValidator(string, 1, " ") ||
       numAndCharValidator(string)
     ) {
-      document.querySelector(".address-error").innerHTML = "Ingrese una dirección y un número";
+      addressError.innerHTML = error = "Ingrese una dirección y un número";
     }
   } else if (e.target.id === "city") {
     if (string.length < 3) {
-      document.querySelector(".city-error").innerHTML = "Ingrese una ciudad válida";
+      cityError.innerHTML = error = "Ingrese una ciudad válida";
     }
   } else if (e.target.id === "zip-code") {
     if (string.length < 3) {
-      document.querySelector(".zip-code-error").innerHTML = "Ingrese un código postal válido";
+      zipCodeError.innerHTML = error = "Ingrese un código postal válido";
     }
   } else if (e.target.id === "dni") {
     if (string.length !== 7 || string.length !== 8 || isNaN(string)) {
-      document.querySelector(".dni-error").innerHTML = "Ingrese un DNI válido";
+      dniError.innerHTML = error = "Ingrese un DNI válido";
     }
   }
+  alert(error);
 }
+
 function formCorrect(e) {
   if (e.target.id === "name") {
-    document.querySelector(".name-error").innerHTML = "";
+    nameError.innerHTML = "";
   } else if (e.target.id === "email") {
-    document.querySelector(".email-error").innerHTML = "";
+    emailError.innerHTML = "";
   } else if (e.target.id === "password") {
-    document.querySelector(".password-error").innerHTML = "";
+    passwordError.innerHTML = "";
   } else if (e.target.id === "age") {
-    document.querySelector(".age-error").innerHTML = "";
+    ageError.innerHTML = "";
   } else if (e.target.id === "tel-number") {
-    document.querySelector(".tel-error").innerHTML = "";
+    telephoneError.innerHTML = "";
   } else if (e.target.id === "address") {
-    document.querySelector(".address-error").innerHTML = "";
+    addressError.innerHTML = "";
   } else if (e.target.id === "city") {
-    document.querySelector(".city-error").innerHTML = "";
+    cityError.innerHTML = "";
   } else if (e.target.id === "zip-code") {
-    document.querySelector(".zip-code-error").innerHTML = "";
+    zipCodeError.innerHTML = "";
   } else if (e.target.id === "dni") {
-    document.querySelector(".dni-error").innerHTML = "";
+    dniError.innerHTML = "";
   }
 }
 function numAndCharValidator(string) {
@@ -96,15 +106,25 @@ function specialCharValidator(string, includeOrExclude, ...specialChar) {
   }
   return false;
 }
-var formName = document.getElementById("name");
-var formEmail = document.getElementById("email");
-var formPassword = document.getElementById("password");
-var formAge = document.getElementById("age");
-var formTelephone = document.getElementById("tel-number");
-var formAddress = document.getElementById("address");
-var formCity = document.getElementById("city");
-var formZipCode = document.getElementById("zip-code");
-var formDni = document.getElementById("dni");
+let formName = document.getElementById("name");
+let formEmail = document.getElementById("email");
+let formPassword = document.getElementById("password");
+let formAge = document.getElementById("age");
+let formTelephone = document.getElementById("tel-number");
+let formAddress = document.getElementById("address");
+let formCity = document.getElementById("city");
+let formZipCode = document.getElementById("zip-code");
+let formDni = document.getElementById("dni");
+
+let nameError = document.querySelector(".name-error");
+let emailError = document.querySelector(".email-error");
+let passwordError = document.querySelector(".password-error");
+let ageError = document.querySelector(".age-error");
+let telephoneError = document.querySelector(".tel-error");
+let addressError = document.querySelector(".address-error");
+let cityError = document.querySelector(".city-error");
+let zipCodeError = document.querySelector(".zip-code-error");
+let dniError = document.querySelector(".dni-error");
 
 formName.addEventListener("blur", formError);
 formEmail.addEventListener("blur", formError);
@@ -126,5 +146,8 @@ formCity.addEventListener("click", formCorrect);
 formZipCode.addEventListener("click", formCorrect);
 formDni.addEventListener("click", formCorrect);
 
-var formH1 = document.getElementById("h1");
-formName.addEventListener("input", () => formH1.innerHTML = formName.value);
+let formH1 = document.getElementById("h1");
+formName.addEventListener(
+  "input",
+  () => (formH1.innerHTML = "HOLA " + formName.value)
+);
