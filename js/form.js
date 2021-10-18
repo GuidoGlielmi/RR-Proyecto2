@@ -126,19 +126,79 @@ formCity.addEventListener("blur", formError);
 formZipCode.addEventListener("blur", formError);
 formDni.addEventListener("blur", formError);
 
-formName.addEventListener("click", formCorrect);
-formEmail.addEventListener("click", formCorrect);
-formPassword.addEventListener("click", formCorrect);
-formAge.addEventListener("click", formCorrect);
-formTelephone.addEventListener("click", formCorrect);
-formAddress.addEventListener("click", formCorrect);
-formCity.addEventListener("click", formCorrect);
-formZipCode.addEventListener("click", formCorrect);
-formDni.addEventListener("click", formCorrect);
+formName.addEventListener("focus", formCorrect); //focused by clicking or pressing tab
+formEmail.addEventListener("focus", formCorrect);
+formPassword.addEventListener("focus", formCorrect);
+formAge.addEventListener("focus", formCorrect);
+formTelephone.addEventListener("focus", formCorrect);
+formAddress.addEventListener("focus", formCorrect);
+formCity.addEventListener("focus", formCorrect);
+formZipCode.addEventListener("focus", formCorrect);
+formDni.addEventListener("focus", formCorrect);
 
+// formName.addEventListener("focus", () => {
+//   formName.addEventListener("keydown", (e) => {
+//     if (
+//       e.key === "a" ||
+//       e.key === "b" ||
+//       e.key === "c" ||
+//       e.key === "d" ||
+//       e.key === "e" ||
+//       e.key === "f" ||
+//       e.key === "g" ||
+//       e.key === "h" ||
+//       e.key === "i" ||
+//       e.key === "j" ||
+//       e.key === "k" ||
+//       e.key === "l" ||
+//       e.key === "m" ||
+//       e.key === "n" ||
+//       e.key === "o" ||
+//       e.key === "p" ||
+//       e.key === "q" ||
+//       e.key === "r" ||
+//       e.key === "s" ||
+//       e.key === "t" ||
+//       e.key === "u" ||
+//       e.key === "x" ||
+//       e.key === "y" ||
+//       e.key === "z" ||
+//       e.key === "A" ||
+//       e.key === "B" ||
+//       e.key === "C" ||
+//       e.key === "D" ||
+//       e.key === "E" ||
+//       e.key === "F" ||
+//       e.key === "G" ||
+//       e.key === "H" ||
+//       e.key === "I" ||
+//       e.key === "J" ||
+//       e.key === "K" ||
+//       e.key === "L" ||
+//       e.key === "M" ||
+//       e.key === "N" ||
+//       e.key === "O" ||
+//       e.key === "P" ||
+//       e.key === "Q" ||
+//       e.key === "R" ||
+//       e.key === "S" ||
+//       e.key === "T" ||
+//       e.key === "U" ||
+//       e.key === "X" ||
+//       e.key === "Y" ||
+//       e.key === "Z"
+//     ) {
+//       formH1.innerHTML = "HOLA " + formName.value + e.key;
+//     } else if (e.key === "Backspace") {
+//       formH1.innerHTML = "HOLA " + formName.value.substring(0, formName.value.length - 1);
+//     }
+//   });
+// });
 let formH1 = document.getElementById("h1");
-formName.addEventListener("focus", () => {
-  formName.addEventListener("keyup", () => {
-    formH1.innerHTML = "HOLA " + formName.value;
-  });
-});
+formName.addEventListener("input", () => (formH1.innerHTML = "HOLA " + formName.value));
+// formName.addEventListener("keyup", () => {
+//   formH1.innerHTML = "HOLA " + formName.value;
+// });
+// formName.addEventListener("focus", () => {
+//   formH1.innerHTML = "HOLA " + formName.value;
+// });
