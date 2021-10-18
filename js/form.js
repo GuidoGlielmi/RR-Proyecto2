@@ -12,8 +12,7 @@ function formError(e) {
     }
   } else if (e.target.id === "password") {
     if (string.length < 8 || numAndCharValidator(string)) {
-      passwordError.innerHTML = error =
-        "La contraseña debe contener números y letras con mas de ocho caracteres ";
+      passwordError.innerHTML = error = "La contraseña debe contener números y letras con mas de ocho caracteres ";
     }
   } else if (e.target.id === "age") {
     if (string !== Math.round(string) || string < 18) {
@@ -21,20 +20,11 @@ function formError(e) {
       ageError.innerHTML = error = "Ingrese un número entero mayor a 18";
     }
   } else if (e.target.id === "tel-number") {
-    if (
-      string.length < 7 ||
-      specialCharValidator(string, 0, "(", ")", " ", "-") ||
-      isNaN(string)
-    ) {
-      telephoneError.innerHTML = error =
-        "Ingrese 8 o más números sin espacios, paréntesis o guiones";
+    if (string.length < 7 || specialCharValidator(string, 0, "(", ")", " ", "-") || isNaN(string)) {
+      telephoneError.innerHTML = error = "Ingrese 8 o más números sin espacios, paréntesis o guiones";
     }
   } else if (e.target.id === "address") {
-    if (
-      string.length < 5 ||
-      specialCharValidator(string, 1, " ") ||
-      numAndCharValidator(string)
-    ) {
+    if (string.length < 5 || specialCharValidator(string, 1, " ") || numAndCharValidator(string)) {
       addressError.innerHTML = error = "Ingrese una dirección y un número";
     }
   } else if (e.target.id === "city") {
@@ -147,7 +137,8 @@ formZipCode.addEventListener("click", formCorrect);
 formDni.addEventListener("click", formCorrect);
 
 let formH1 = document.getElementById("h1");
-formName.addEventListener(
-  "input",
-  () => (formH1.innerHTML = "HOLA " + formName.value)
-);
+formName.addEventListener("focus", () => {
+  formName.addEventListener("keyup", () => {
+    formH1.innerHTML = "HOLA " + formName.value;
+  });
+});
