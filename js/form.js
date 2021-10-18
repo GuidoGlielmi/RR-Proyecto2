@@ -40,7 +40,7 @@ function formError(e) {
       dniError.innerHTML = error = "Ingrese un DNI válido";
     }
   }
-  alert(error);
+  if(error) alert(error);
 }
 
 function formCorrect(e) {
