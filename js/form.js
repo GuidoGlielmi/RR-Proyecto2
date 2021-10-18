@@ -20,7 +20,7 @@ function formError(e) {
       ageError.innerHTML = error = "Ingrese un número entero mayor a 18";
     }
   } else if (e.target.id === "tel-number") {
-    if (string.length < 7 || specialCharValidator(string, 0, "(", ")", " ", "-") || isNaN(string)) {
+    if (string.length < 7 || isNaN(string)) {
       telephoneError.innerHTML = error = "Ingrese 8 o más números sin espacios, paréntesis o guiones";
     }
   } else if (e.target.id === "address") {
