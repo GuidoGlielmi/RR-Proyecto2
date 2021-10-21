@@ -15,7 +15,7 @@ function formError(e) {
       passwordError.innerHTML = error = "La contraseña debe contener números y letras con mas de ocho caracteres ";
     }
   } else if (e.target.id === "age") {
-    if (string !== Math.round(string) || string < 18) {
+    if (string !== Math.round(string) && string < 18) {
       // Math.round funciona con strings
       ageError.innerHTML = error = "Ingrese un número entero mayor a 18";
     }
@@ -36,11 +36,11 @@ function formError(e) {
       zipCodeError.innerHTML = error = "Ingrese un código postal válido";
     }
   } else if (e.target.id === "dni") {
-    if (string.length !== 7 || string.length !== 8 || isNaN(string)) {
+    if ((string.length !== 7 && string.length !== 8) || isNaN(string)) {
       dniError.innerHTML = error = "Ingrese un DNI válido";
     }
   }
-  if(error) alert(error);
+  if (error) alert(error);
 }
 
 function formCorrect(e) {
@@ -136,5 +136,5 @@ formCity.addEventListener("focus", formCorrect);
 formZipCode.addEventListener("focus", formCorrect);
 formDni.addEventListener("focus", formCorrect);
 
-let formH1 = document.getElementById("h1");
-formName.addEventListener("input", () => (formH1.innerHTML = "HOLA " + formName.value));
+let formWelcomeSign = document.getElementById("welcome-sign");
+formName.addEventListener("input", () => (formWelcomeSign.innerHTML = "HOLA " + formName.value));
