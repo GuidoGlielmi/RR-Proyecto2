@@ -138,3 +138,32 @@ formDni.addEventListener("focus", formCorrect);
 
 let formWelcomeSign = document.getElementById("welcome-sign");
 formName.addEventListener("input", () => (formWelcomeSign.innerHTML = "HOLA " + formName.value));
+
+let modalSign = document.getElementById("modal");
+let modalContent = document.getElementById("modal-content");
+let modalText = document.getElementById("modal-text");
+let modalClose = document.getElementById("close-button");
+modalClose.addEventListener("click", () => (modalSign.className = "modal-hidden"));
+
+let url =
+  "http://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&Password=guidoglielmi123&Telephone=123456789&City=rosario&DNI=12345678&email=guido@glielmi.com&Age=26&Address=lavalle+1234&Zip+code=2000";
+let submitButton = document.getElementById("submit");
+submitButton.addEventListener("click", submitForm);
+function submitForm() {
+  fetch(url)
+    .then((response) => {
+      if (response.status >= 400) {
+        throw Error(response.status + ": " + response.statusText);
+      }
+      return response.json();
+    })
+    .then((json) => {
+      modalText.innerText = JSON.stringify(json);
+      modalSign.className = "modal";
+      for (let key in json) localStorage.setItem(key, json[key]);
+    })
+    .catch((error) => {
+      modalText.innerText = error;
+      modalSign.className = "modal";
+    });
+}
