@@ -1,3 +1,9 @@
+window.onload = () => {
+  for(let element in localStorage) {
+    console.log(element)
+    if(document.getElementById(element)) document.getElementById(element).value=localStorage[element];
+  }
+}
 function formError(e) {
   //e es el tag de html
   let error;
@@ -19,7 +25,7 @@ function formError(e) {
       // Math.round funciona con strings
       ageError.innerHTML = error = "Ingrese un número entero mayor a 18";
     }
-  } else if (e.target.id === "tel-number") {
+  } else if (e.target.id === "telephone") {
     if (string.length < 7 || isNaN(string)) {
       telephoneError.innerHTML = error = "Ingrese 8 o más números sin espacios, paréntesis o guiones";
     }
@@ -52,7 +58,7 @@ function formCorrect(e) {
     passwordError.innerHTML = "";
   } else if (e.target.id === "age") {
     ageError.innerHTML = "";
-  } else if (e.target.id === "tel-number") {
+  } else if (e.target.id === "telephone") {
     telephoneError.innerHTML = "";
   } else if (e.target.id === "address") {
     addressError.innerHTML = "";
@@ -100,7 +106,7 @@ let formName = document.getElementById("name");
 let formEmail = document.getElementById("email");
 let formPassword = document.getElementById("password");
 let formAge = document.getElementById("age");
-let formTelephone = document.getElementById("tel-number");
+let formTelephone = document.getElementById("telephone");
 let formAddress = document.getElementById("address");
 let formCity = document.getElementById("city");
 let formZipCode = document.getElementById("zip-code");
@@ -146,7 +152,7 @@ let modalClose = document.getElementById("close-button");
 modalClose.addEventListener("click", () => (modalSign.className = "modal-hidden"));
 
 let url =
-  "http://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&Password=guidoglielmi123&Telephone=123456789&City=rosario&DNI=12345678&email=guido@glielmi.com&Age=26&Address=lavalle+1234&Zip+code=2000";
+  "http://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&password=guidoglielmi123&telephone=123456789&city=rosario&dni=12345678&email=guido@glielmi.com&age=26&address=lavalle+1234&zip-code=2000";
 let submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", submitForm);
 function submitForm() {
