@@ -4,7 +4,6 @@ window.onload = () => {
   }
 };
 function formError(e) {
-  //e es el tag de html
   let error;
   let string = e.target.value;
   if (e.target.id === "name") {
@@ -21,7 +20,7 @@ function formError(e) {
     }
   } else if (e.target.id === "age") {
     if (string !== Math.round(string) && string < 18) {
-      // Math.round funciona con strings
+      // Math.round works with strings
       ageError.innerHTML = error = "Ingrese un número entero mayor a 18";
     }
   } else if (e.target.id === "telephone") {
@@ -90,7 +89,7 @@ function specialCharValidator(string, includeOrExclude, ...specialChar) {
   let count = 0;
   for (let n of specialChar) {
     if (string.indexOf(n) !== -1) {
-      count++; //si está el caracter, suma count
+      count++; //if the character is there, adds to count
     }
   }
   if (!includeOrExclude && count !== 0) {
