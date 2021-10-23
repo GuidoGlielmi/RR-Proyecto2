@@ -1,9 +1,8 @@
 window.onload = () => {
-  for(let element in localStorage) {
-    console.log(element)
-    if(document.getElementById(element)) document.getElementById(element).value=localStorage[element];
+  for (let key in localStorage) {
+    if (document.querySelector(`input[name=${key}]`)) document.getElementById(key).value = localStorage[key];
   }
-}
+};
 function formError(e) {
   //e es el tag de html
   let error;
@@ -149,7 +148,7 @@ let modalSign = document.getElementById("modal");
 let modalContent = document.getElementById("modal-content");
 let modalText = document.getElementById("modal-text");
 let modalClose = document.getElementById("close-button");
-modalClose.addEventListener("click", () => (modalSign.className = "modal-hidden"));
+modalClose.addEventListener("click", () => (modalSign.className = "hidden"));
 
 let url =
   "http://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&password=guidoglielmi123&telephone=123456789&city=rosario&dni=12345678&email=guido@glielmi.com&age=26&address=lavalle+1234&zip-code=2000";
@@ -158,7 +157,7 @@ submitButton.addEventListener("click", submitForm);
 function submitForm() {
   fetch(url)
     .then((response) => {
-      if (response.status >= 400) {
+      if (response.status >= 200 && response.status < 300) {
         throw Error(response.status + ": " + response.statusText);
       }
       return response.json();

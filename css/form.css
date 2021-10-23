@@ -40,7 +40,7 @@ form.subscribe label {
 form.subscribe label {
   margin-right: 35px;
 }
-.modal-hidden {
+.hidden {
   display: none;
 }
 .modal {
@@ -60,7 +60,7 @@ form.subscribe label {
   border: 1px solid #888;
 }
 #modal-text {
-  margin:10px;
+  margin: 10px;
   overflow-wrap: anywhere;
 }
 #welcome-sign {
@@ -70,7 +70,7 @@ form.subscribe label {
   align-self: flex-start;
   border-radius: 50%;
   width: 2vw;
-  margin:10px;
+  margin: 10px;
 }
 
 @media (min-width: 768px) {
