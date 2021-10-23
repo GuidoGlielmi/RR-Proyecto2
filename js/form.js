@@ -157,7 +157,7 @@ submitButton.addEventListener("click", submitForm);
 function submitForm() {
   fetch(url)
     .then((response) => {
-      if (response.status >= 200 && response.status < 300) {
+      if (response.status < 200 && response.status >= 300) {
         throw Error(response.status + ": " + response.statusText);
       }
       return response.json();
