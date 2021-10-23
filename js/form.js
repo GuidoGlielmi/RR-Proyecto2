@@ -144,13 +144,12 @@ let formWelcomeSign = document.getElementById("welcome-sign");
 formName.addEventListener("input", () => (formWelcomeSign.innerHTML = "HOLA " + formName.value));
 
 let modalSign = document.getElementById("modal");
-let modalContent = document.getElementById("modal-content");
 let modalText = document.getElementById("modal-text");
 let modalClose = document.getElementById("close-button");
 modalClose.addEventListener("click", () => (modalSign.className = "hidden"));
 
 let url =
-  "http://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&password=guidoglielmi123&telephone=123456789&city=rosario&dni=12345678&email=guido@glielmi.com&age=26&address=lavalle+1234&zip-code=2000";
+  "https://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&password=guidoglielmi123&telephone=123456789&city=rosario&dni=12345678&email=guido@glielmi.com&age=26&address=lavalle+1234&zip-code=2000";
 let submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", submitForm);
 function submitForm() {
