@@ -1,29 +1,29 @@
-let formName = document.getElementById("name"); //ctrl+d selects the framed word
-let formEmail = document.getElementById("email");
-let formPassword = document.getElementById("password");
-let formAge = document.getElementById("age");
-let formTelephone = document.getElementById("telephone");
-let formAddress = document.getElementById("address");
-let formCity = document.getElementById("city");
-let formZipCode = document.getElementById("zip-code");
-let formDni = document.getElementById("dni");
+const formName = document.getElementById("name"); //ctrl+d selects the framed word
+const formEmail = document.getElementById("email");
+const formPassword = document.getElementById("password");
+const formAge = document.getElementById("age");
+const formTelephone = document.getElementById("telephone");
+const formAddress = document.getElementById("address");
+const formCity = document.getElementById("city");
+const formZipCode = document.getElementById("zip-code");
+const formDni = document.getElementById("dni");
 
-let nameError = document.querySelector(".name-error");
-let emailError = document.querySelector(".email-error");
-let passwordError = document.querySelector(".password-error");
-let ageError = document.querySelector(".age-error");
-let telephoneError = document.querySelector(".tel-error");
-let addressError = document.querySelector(".address-error");
-let cityError = document.querySelector(".city-error");
-let zipCodeError = document.querySelector(".zip-code-error");
-let dniError = document.querySelector(".dni-error");
+const nameError = document.querySelector(".name-error");
+const emailError = document.querySelector(".email-error");
+const passwordError = document.querySelector(".password-error");
+const ageError = document.querySelector(".age-error");
+const telephoneError = document.querySelector(".tel-error");
+const addressError = document.querySelector(".address-error");
+const cityError = document.querySelector(".city-error");
+const zipCodeError = document.querySelector(".zip-code-error");
+const dniError = document.querySelector(".dni-error");
 
-let formWelcomeSign = document.getElementById("welcome-sign");
-let modalSign = document.getElementById("modal");
-let modalText = document.getElementById("modal-text");
-let modalClose = document.getElementById("close-button");
-let formInputs = Array.from(document.getElementsByClassName("input"));
-let submitButton = document.getElementById("submit");
+const formWelcomeSign = document.getElementById("welcome-sign");
+const modalSign = document.getElementById("modal");
+const modalText = document.getElementById("modal-text");
+const modalClose = document.getElementById("close-button");
+const formInputs = Array.from(document.getElementsByClassName("input"));
+const submitButton = document.getElementById("submit");
 
 window.onload = () => {
   for (let key of formInputs) {
@@ -48,7 +48,6 @@ const emailValidator = () => {
     return (emailError.innerHTML = errorText);
   }
 };
-
 const passwordValidator = () => {
   if (formPassword.value < 8 || numAndCharValidator(formPassword.value)) {
     let errorText = "La contraseña debe contener números y letras con mas de ocho caracteres ";
