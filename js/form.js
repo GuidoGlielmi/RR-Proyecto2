@@ -1,9 +1,9 @@
-window.onload = () => {
+/* window.onload = () => {
   for (let key of document.querySelectorAll(".subscribe input")) {
     if (localStorage[key.name]) key.value = localStorage[key.name];
   }
   formWelcomeSign.innerHTML = "HOLA " + formName.value;
-};
+}; */
 let formName = document.getElementById("name");
 let formEmail = document.getElementById("email");
 let formPassword = document.getElementById("password");
@@ -163,7 +163,7 @@ function validateEverything() {
   let error = "";
   for (let element in errorFunctions) {
     let currentValue = errorFunctions[element]({ target: { value: formInputs[count].value } }); //simulates a blur event
-    if (currentValue) error = error + "\n" + currentValue; // if no error in any input field, error = ''
+    if (currentValue) error = error + "- " + currentValue + "\n"; // if no error in any input field, error = ''
     count++;
   }
   console.log(error);
