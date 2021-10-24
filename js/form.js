@@ -1,9 +1,9 @@
-/* window.onload = () => {
+window.onload = () => {
   for (let key of document.querySelectorAll(".subscribe input")) {
     if (localStorage[key.name]) key.value = localStorage[key.name];
   }
   formWelcomeSign.innerHTML = "HOLA " + formName.value;
-}; */
+};
 let formName = document.getElementById("name");
 let formEmail = document.getElementById("email");
 let formPassword = document.getElementById("password");
