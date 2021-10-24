@@ -1,10 +1,4 @@
-window.onload = () => {
-  for (let key of document.querySelectorAll(".subscribe input")) {
-    if (localStorage[key.name]) key.value = localStorage[key.name];
-  }
-  formWelcomeSign.innerHTML = "HOLA " + formName.value;
-};
-let formName = document.getElementById("name");
+let formName = document.getElementById("name"); //ctrl+d selects the framed word
 let formEmail = document.getElementById("email");
 let formPassword = document.getElementById("password");
 let formAge = document.getElementById("age");
@@ -31,65 +25,101 @@ let modalClose = document.getElementById("close-button");
 let formInputs = Array.from(document.getElementsByClassName("input"));
 let submitButton = document.getElementById("submit");
 
-const errorFunctions = {
-  //validators should go in the HTML ORDER
-  nameValidator: ({ target: { value } }) => {
-    if (value.length < 6 || specialCharValidator(value, 1, " ")) {
-      return (nameError.innerHTML = "Ingrese Nombre y Apellido");
-    }
-  },
-  emailValidator: ({ target: { value } }) => {
-    if (specialCharValidator(value, 1, "@", ".")) {
-      return (emailError.innerHTML = "Ingrese un formato de email válido");
-    }
-  },
-  passwordValidator: ({ target: { value } }) => {
-    if (value < 8 || numAndCharValidator(value)) {
-      return (passwordError.innerHTML = "La contraseña debe contener números y letras con mas de ocho caracteres ");
-    }
-  },
-  ageValidator: ({ target: { value } }) => {
-    if (value !== Math.round(value) && value < 18) {
-      // Math.round works with strings
-      return (ageError.innerHTML = "Ingrese un número entero mayor a 18");
-    }
-  },
-  telephoneValidator: ({ target: { value } }) => {
-    if (value.length < 7 || isNaN(value)) {
-      return (telephoneError.innerHTML = "Ingrese 8 o más números sin espacios, paréntesis o guiones");
-    }
-  },
-  addressValidator: ({ target: { value } }) => {
-    if (value.length < 5 || specialCharValidator(value, 1, " ") || numAndCharValidator(value)) {
-      return (addressError.innerHTML = "Ingrese una dirección y un número");
-    }
-  },
-  cityValidator: ({ target: { value } }) => {
-    if (value.length < 3) {
-      return (cityError.innerHTML = "Ingrese una ciudad válida");
-    }
-  },
-  zipCodeValidator: ({ target: { value } }) => {
-    if (value.length < 3) {
-      return (zipCodeError.innerHTML = "Ingrese un código postal válido");
-    }
-  },
-  dniValidator: ({ target: { value } }) => {
-    if ((value.length !== 7 && value.length !== 8) || isNaN(value)) {
-      return (dniError.innerHTML = "Ingrese un DNI válido");
-    }
-  },
+window.onload = () => {
+  for (let key of formInputs) {
+    if (localStorage[key.name]) key.value = localStorage[key.name];
+  }
+  formWelcomeSign.innerHTML = "HOLA " + formName.value;
 };
 
-formName.addEventListener("blur", errorFunctions.nameValidator);
-formEmail.addEventListener("blur", errorFunctions.emailValidator);
-formPassword.addEventListener("blur", errorFunctions.passwordValidator);
-formAge.addEventListener("blur", errorFunctions.ageValidator);
-formTelephone.addEventListener("blur", errorFunctions.telephoneValidator);
-formAddress.addEventListener("blur", errorFunctions.addressValidator);
-formCity.addEventListener("blur", errorFunctions.cityValidator);
-formZipCode.addEventListener("blur", errorFunctions.zipCodeValidator);
-formDni.addEventListener("blur", errorFunctions.dniValidator);
+const nameValidator = () => {
+  if (formName.value.length < 6 || specialCharValidator(formName.value, 1, " ")) {
+    let errorText = "Ingrese Nombre y Apellido";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (nameError.innerHTML = errorText);
+  }
+};
+const emailValidator = () => {
+  if (specialCharValidator(formEmail.value, 1, "@", ".")) {
+    let errorText = "Ingrese un formato de email válido";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (emailError.innerHTML = errorText);
+  }
+};
+
+const passwordValidator = () => {
+  if (formPassword.value < 8 || numAndCharValidator(formPassword.value)) {
+    let errorText = "La contraseña debe contener números y letras con mas de ocho caracteres ";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (passwordError.innerHTML = errorText);
+  }
+};
+const ageValidator = () => {
+  if (formAge.value !== Math.round(formAge.value) && formAge.value < 18) {
+    // Math.round works with strings
+    let errorText = "Ingrese un número entero mayor a 18";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (ageError.innerHTML = errorText);
+  }
+};
+const telephoneValidator = () => {
+  if (formTelephone.value.length < 7 || isNaN(formTelephone.value)) {
+    let errorText = "Ingrese 8 o más números sin espacios, paréntesis o guiones";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (telephoneError.innerHTML = errorText);
+  }
+};
+const addressValidator = () => {
+  if (
+    formAddress.value.length < 5 ||
+    specialCharValidator(formAddress.value, 1, " ") ||
+    numAndCharValidator(formAddress.value)
+  ) {
+    let errorText = "Ingrese una dirección y un número";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (addressError.innerHTML = errorText);
+  }
+};
+const cityValidator = () => {
+  if (formCity.value.length < 3) {
+    let errorText = "Ingrese una ciudad válida";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (cityError.innerHTML = errorText);
+  }
+};
+const zipCodeValidator = () => {
+  if (formZipCode.value.length < 3) {
+    let errorText = "Ingrese un código postal válido";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (zipCodeError.innerHTML = errorText);
+  }
+};
+const dniValidator = () => {
+  if ((formDni.value.length !== 7 && formDni.value.length !== 8) || isNaN(formDni.value)) {
+    let errorText = "Ingrese un DNI válido";
+    modalText.innerText = errorText;
+    modalSign.className = "modal";
+    return (dniError.innerHTML = errorText);
+  }
+};
+
+formName.addEventListener("blur", nameValidator);
+formEmail.addEventListener("blur", emailValidator);
+formPassword.addEventListener("blur", passwordValidator);
+formAge.addEventListener("blur", ageValidator);
+formTelephone.addEventListener("blur", telephoneValidator);
+formAddress.addEventListener("blur", addressValidator);
+formCity.addEventListener("blur", cityValidator);
+formZipCode.addEventListener("blur", zipCodeValidator);
+formDni.addEventListener("blur", dniValidator);
 submitButton.addEventListener("click", submitForm);
 
 formName.addEventListener("focus", formCorrect); //focused by clicking or pressing tab
@@ -104,6 +134,25 @@ formDni.addEventListener("focus", formCorrect);
 
 modalClose.addEventListener("click", () => (modalSign.className = "hidden"));
 formName.addEventListener("input", () => (formWelcomeSign.innerHTML = "HOLA " + formName.value));
+
+const errorFunctions = [
+  nameValidator,
+  emailValidator,
+  passwordValidator,
+  ageValidator,
+  telephoneValidator,
+  addressValidator,
+  cityValidator,
+  zipCodeValidator,
+  dniValidator,
+];
+function validateEverything() {
+  let error = "";
+  for (let element of errorFunctions) {
+    if (element()) error = error + "- " + element() + "\n"; // if no error in any input field, error = ''
+  }
+  return error;
+}
 
 function formCorrect(e) {
   if (e.target.id === "name") {
@@ -158,17 +207,7 @@ function specialCharValidator(string, includeOrExclude, ...specialChar) {
   }
   return false;
 }
-function validateEverything() {
-  let count = 0;
-  let error = "";
-  for (let element in errorFunctions) {
-    let currentValue = errorFunctions[element]({ target: { value: formInputs[count].value } }); //simulates a blur event
-    if (currentValue) error = error + "- " + currentValue + "\n"; // if no error in any input field, error = ''
-    count++;
-  }
-  console.log(error);
-  return error;
-}
+
 let url =
   "https://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&password=guidoglielmi123&telephone=123456789&city=rosario&dni=12345678&email=guido@glielmi.com&age=26&address=lavalle+1234&zip-code=2000";
 function submitForm() {
