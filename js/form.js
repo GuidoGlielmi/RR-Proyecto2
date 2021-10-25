@@ -33,7 +33,10 @@ window.onload = () => {
 };
 
 const nameValidator = () => {
-  if (formName.value.length < 6 || specialCharValidator(formName.value, 1, " ")) {
+  if (
+    formName.value.length < 6 ||
+    specialCharValidator(formName.value, 1, " ")
+  ) {
     let errorText = "Ingrese Nombre y Apellido";
     modalText.innerText = errorText;
     modalSign.className = "modal";
@@ -50,7 +53,8 @@ const emailValidator = () => {
 };
 const passwordValidator = () => {
   if (formPassword.value < 8 || numAndCharValidator(formPassword.value)) {
-    let errorText = "La contraseña debe contener números y letras con mas de ocho caracteres ";
+    let errorText =
+      "La contraseña debe contener números y letras con mas de ocho caracteres ";
     modalText.innerText = errorText;
     modalSign.className = "modal";
     return (passwordError.innerHTML = errorText);
@@ -67,7 +71,8 @@ const ageValidator = () => {
 };
 const telephoneValidator = () => {
   if (formTelephone.value.length < 7 || isNaN(formTelephone.value)) {
-    let errorText = "Ingrese 8 o más números sin espacios, paréntesis o guiones";
+    let errorText =
+      "Ingrese 8 o más números sin espacios, paréntesis o guiones";
     modalText.innerText = errorText;
     modalSign.className = "modal";
     return (telephoneError.innerHTML = errorText);
@@ -102,7 +107,10 @@ const zipCodeValidator = () => {
   }
 };
 const dniValidator = () => {
-  if ((formDni.value.length !== 7 && formDni.value.length !== 8) || isNaN(formDni.value)) {
+  if (
+    (formDni.value.length !== 7 && formDni.value.length !== 8) ||
+    isNaN(formDni.value)
+  ) {
     let errorText = "Ingrese un DNI válido";
     modalText.innerText = errorText;
     modalSign.className = "modal";
@@ -132,7 +140,10 @@ formZipCode.addEventListener("focus", formCorrect);
 formDni.addEventListener("focus", formCorrect);
 
 modalClose.addEventListener("click", () => (modalSign.className = "hidden"));
-formName.addEventListener("input", () => (formWelcomeSign.innerHTML = "HOLA " + formName.value));
+formName.addEventListener(
+  "input",
+  () => (formWelcomeSign.innerHTML = "HOLA " + formName.value)
+);
 
 const errorFunctions = [
   nameValidator,
@@ -207,9 +218,8 @@ function specialCharValidator(string, includeOrExclude, ...specialChar) {
   return false;
 }
 
-let url =
-  "https://curso-dev-2021.herokuapp.com/newsletter?name=Guido+Glielmi&password=guidoglielmi123&telephone=123456789&city=rosario&dni=12345678&email=guido@glielmi.com&age=26&address=lavalle+1234&zip-code=2000";
 function submitForm() {
+  let url = `https://curso-dev-2021.herokuapp.com/newsletter?name=${formName.value}&password=${formPassword.value}&telephone=${formTelephone.value}&city=${formCity.value}&dni=${formDni.value}&email=${formEmail.value}&age=26&address=${formAddress.value}&zip-code=${formZipCode.value}`;
   if (!validateEverything()) {
     fetch(url)
       .then((response) => {
