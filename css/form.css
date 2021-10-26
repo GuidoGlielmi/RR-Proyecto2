@@ -55,14 +55,14 @@ form.subscribe label {
 #modal-content {
   justify-content: space-between;
   margin: auto;
-  width: 50%;
+  max-width: 80%;
   padding: 10px;
   background-color: #fefefe;
   border: 1px solid #888;
 }
 #modal-text {
   margin: 10px;
-  font-size: 3vw;
+  font-size: 7vw;
   overflow-wrap: anywhere;
 }
 #welcome-sign {
@@ -71,7 +71,7 @@ form.subscribe label {
 #close-button {
   align-self: flex-start;
   border-radius: 50%;
-  width: 3.5vw;
+  width: 7vw;
   margin: 10px;
 }
 
@@ -79,9 +79,27 @@ form.subscribe label {
   .input-column {
     max-width: 375px;
   }
+  #modal-text {
+    font-size: 3vw;
+  }
+  #close-button {
+    align-self: flex-start;
+    border-radius: 50%;
+    width: 3.5vw;
+    margin: 10px;
+  }
 }
 @media (min-width: 1200px) {
   .input-column {
     max-width: 550px;
+  }
+  #modal-text {
+    font-size: 1.5vw;
+  }
+  #close-button {
+    align-self: flex-start;
+    border-radius: 50%;
+    width: 2vw;
+    margin: 10px;
   }
 }
