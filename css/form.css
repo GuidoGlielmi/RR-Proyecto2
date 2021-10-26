@@ -49,7 +49,7 @@ form.subscribe label {
   z-index: 1;
   top: 0;
   height: 100%;
-  width:100%;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
 }
 #modal-content {
@@ -61,7 +61,8 @@ form.subscribe label {
   border: 1px solid #888;
 }
 #modal-text {
-  margin:10px;
+  margin: 10px;
+  font-size: 3vw;
   overflow-wrap: anywhere;
 }
 #welcome-sign {
@@ -70,8 +71,8 @@ form.subscribe label {
 #close-button {
   align-self: flex-start;
   border-radius: 50%;
-  width: 2vw;
-  margin:10px;
+  width: 3.5vw;
+  margin: 10px;
 }
 
 @media (min-width: 768px) {

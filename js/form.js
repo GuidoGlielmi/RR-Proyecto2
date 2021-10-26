@@ -232,7 +232,7 @@ function specialCharValidator(string, includeOrExclude, ...specialChar) {
 }
 
 function submitForm() {
-  let url = `https://curso-dev-2021.herokuapp.com/newsletter?name=${formName.value}&password=${formPassword.value}&telephone=${formTelephone.value}&city=${formCity.value}&dni=${formDni.value}&email=${formEmail.value}&age=26&address=${formAddress.value}&zip-code=${formZipCode.value}`;
+  let url = `https://curso-dev-2021.herokuapp.com/newsletter?name=${formName.value}&email=${formEmail.value}&password=${formPassword.value}&age=${formAge.value}&telephone=${formTelephone.value}&city=${formCity.value}&address=${formAddress.value}&zip-code=${formZipCode.value}&dni=${formDni.value}`;
   if (!validateEverything()) {
     fetch(url)
       .then((response) => {

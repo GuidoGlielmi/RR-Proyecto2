@@ -99,7 +99,8 @@ main > * {
 .logo {
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 5.5vw;
+  font-size: 5vw;
+  line-height: 6vw;
 }
 .nav-links {
   display: none;
@@ -110,7 +111,7 @@ main > * {
   left: 0px;
   top: 10vh; /*same than nav*/
   line-height: 40px;
-  font-size: 4vw;
+  font-size: 3.5vw;
   background-color: rgb(44, 44, 44);
   text-decoration: none;
   font-weight: bold;
@@ -201,7 +202,7 @@ footer > .container {
     justify-content: space-around;
   }
   .logo {
-    font-size: 4vw;
+    font-size: 3.5vw;
   }
   .nav-links {
     display: flex;
@@ -209,7 +210,7 @@ footer > .container {
     justify-content: space-around;
     position: static;
     width: 40%;
-    font-size: 2.5vw;
+    font-size: 2vw;
   }
   #burger {
     display: none;
@@ -247,9 +248,9 @@ footer > .container {
     width: 30px;
   }
   .logo {
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
   .nav-links {
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 }
