@@ -1,10 +1,10 @@
 const formInputs = Array.from(document.getElementsByClassName("input"));
-// window.onload = () => {
-//   for (let key of formInputs) {
-//     if (localStorage[key.name]) key.value = localStorage[key.name];
-//   }
-//   formWelcomeSign.innerHTML = "HOLA " + formName.value;
-// };
+window.onload = () => {
+  for (let key of formInputs) {
+    if (localStorage[key.name]) key.value = localStorage[key.name];
+  }
+  formWelcomeSign.innerHTML = "HOLA " + formName.value;
+};
 
 const formName = document.getElementById("name"); //ctrl+d selects the framed word
 const formEmail = document.getElementById("email");
