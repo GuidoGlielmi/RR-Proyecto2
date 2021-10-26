@@ -7,26 +7,29 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main-js.js" defer></script>
     <title>News Portal</title>
   </head>
   <body>
     <nav class="container">
-      <img class="main-logo" src="Img/main-logo.png" alt="brand logo" />
-      <div class="container">
-        <form class="container" action="">
-          <input type="search" placeholder="Search..." name="search" />
-          <button class="container" type="submit">
-            <img src="Img/search-icon.png" alt="search logo" />
-          </button>
-        </form>
-        <ul class="container">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a class="hamburguer-icon" href="index.html">
-          <img src="img/Hamburger_icon.png" alt="Hamburguer icon">
-        </a>
+      <div class="logo">
+        <p>The nav</p>
+      </div>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <form class="container" action="">
+        <input type="search" placeholder="Search..." name="search" />
+        <button class="container" type="submit">
+          <img src="Img/search-icon.png" alt="search logo" />
+        </button>
+      </form>
+      <div id="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
       </div>
     </nav>
     <main class="container">
