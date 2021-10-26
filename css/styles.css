@@ -39,7 +39,7 @@ nav ul {
   display: none;
 }
 nav form * {
-  height: 5vw;
+  height: 3.5vh;
   max-height: 30px;
   padding: 0;
   flex-grow: 1;
@@ -99,8 +99,8 @@ main > * {
 .logo {
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 5vw;
-  line-height: 6vw;
+  font-size: 3.5vh;
+  line-height: 3vh;
 }
 .nav-links {
   display: none;
@@ -110,8 +110,8 @@ main > * {
   position: absolute;
   left: 0px;
   top: 10vh; /*same than nav*/
-  line-height: 40px;
-  font-size: 3.5vw;
+  line-height: 7vh;
+  font-size: 3.5vh;
   background-color: rgb(44, 44, 44);
   text-decoration: none;
   font-weight: bold;
@@ -120,13 +120,13 @@ main > * {
   margin: 0 10px;
 }
 #burger div {
-  width: 5vw;
+  width: 3vw;
   max-width: 35px;
   min-width: 20px;
-  height: 0.5vw;
+  height: 0.55vh;
   max-height: 20px;
   min-height: 1.5px;
-  margin: 5px;
+  margin: 0.6vh;
   background-color: rgb(255, 255, 255);
 }
 .container {
@@ -202,7 +202,8 @@ footer > .container {
     justify-content: space-around;
   }
   .logo {
-    font-size: 3.5vw;
+    font-size: 7vh;
+    line-height: 13vh;
   }
   .nav-links {
     display: flex;
@@ -221,6 +222,9 @@ footer > .container {
   }
   nav form {
     order: 3;
+  }
+  nav form * {
+    height: 6vh;
   }
   .side-article-L {
     order: 1;
@@ -245,7 +249,11 @@ footer > .container {
     flex-grow: 1;
   }
   nav form img {
-    width: 30px;
+    width: unset;
+  }
+  nav form * {
+    height: 5vh;
+    max-height: unset;
   }
   .logo {
     font-size: 2.5vw;

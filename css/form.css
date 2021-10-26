@@ -58,7 +58,6 @@ form.subscribe label {
   max-width: 80%;
   max-height: 80%;
   padding: 10px;
-  overflow: scroll;
   background-color: #fefefe;
   border: 1px solid #888;
 }
