@@ -33,40 +33,22 @@ const modalSign = document.getElementById("modal");
 const modalText = document.getElementById("modal-text");
 const modalClose = document.getElementById("close-button");
 const submitButton = document.getElementById("submit");
-const burgerLinks = document.getElementById("nav-links");
-const burger = document.getElementById("burger");
-burger.content = burgerLinks;
-burger.addEventListener("click", toggleShow);
-
-function toggleShow(tag) {
-  //it is necessary to add the content of the toggle
-  if (tag.currentTarget.content.style.display === "") {
-    tag.currentTarget.content.style.display = "flex";
-  } else {
-    tag.currentTarget.content.style.display = "";
-  }
-}
 
 const nameValidator = () => {
-  if (
-    formName.value.length < 6 ||
-    specialCharValidator(formName.value, 1, " ")
-  ) {
+  if (formName.value.length < 6 || specialCharValidator(formName.value, 1, " ")) {
     let errorText = "Ingrese Nombre y Apellido separados por un espacio";
     return (nameError.innerHTML = errorText);
   }
 };
 const emailValidator = () => {
   if (specialCharValidator(formEmail.value, 1, "@", ".")) {
-    let errorText =
-      "Ingrese un formato de email válido, haciendo uso de '@' y '.'";
+    let errorText = "Ingrese un formato de email válido, haciendo uso de '@' y '.'";
     return (emailError.innerHTML = errorText);
   }
 };
 const passwordValidator = () => {
   if (formPassword.value < 8 || numAndCharValidator(formPassword.value)) {
-    let errorText =
-      "La contraseña debe contener números y letras con mas de ocho caracteres ";
+    let errorText = "La contraseña debe contener números y letras con mas de ocho caracteres ";
     return (passwordError.innerHTML = errorText);
   }
 };
@@ -85,8 +67,7 @@ const ageValidator = () => {
 };
 const telephoneValidator = () => {
   if (formTelephone.value.length < 7 || isNaN(formTelephone.value)) {
-    let errorText =
-      "Ingrese 8 o más números sin espacios, paréntesis o guiones";
+    let errorText = "Ingrese 8 o más números sin espacios, paréntesis o guiones";
     return (telephoneError.innerHTML = errorText);
   }
 };
@@ -96,8 +77,7 @@ const addressValidator = () => {
     specialCharValidator(formAddress.value, 1, " ") ||
     numAndCharValidator(formAddress.value)
   ) {
-    let errorText =
-      "Ingrese una dirección y un número separados por un espacio";
+    let errorText = "Ingrese una dirección y un número separados por un espacio";
     return (addressError.innerHTML = errorText);
   }
 };
@@ -114,10 +94,7 @@ const zipCodeValidator = () => {
   }
 };
 const dniValidator = () => {
-  if (
-    (formDni.value.length !== 7 && formDni.value.length !== 8) ||
-    isNaN(formDni.value)
-  ) {
+  if ((formDni.value.length !== 7 && formDni.value.length !== 8) || isNaN(formDni.value)) {
     let errorText = "Ingrese un DNI de siete u ocho números";
     return (dniError.innerHTML = errorText);
   }
@@ -147,10 +124,7 @@ formZipCode.addEventListener("focus", formCorrect);
 formDni.addEventListener("focus", formCorrect);
 
 modalClose.addEventListener("click", () => (modalSign.className = "hidden"));
-formName.addEventListener(
-  "input",
-  () => (formWelcomeSign.innerHTML = "HOLA " + formName.value)
-);
+formName.addEventListener("input", () => (formWelcomeSign.innerHTML = "HOLA " + formName.value));
 
 const errorFunctions = [
   nameValidator,
