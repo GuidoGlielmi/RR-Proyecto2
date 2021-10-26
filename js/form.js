@@ -1,14 +1,15 @@
 const formInputs = Array.from(document.getElementsByClassName("input"));
-window.onload = () => {
-  for (let key of formInputs) {
-    if (localStorage[key.name]) key.value = localStorage[key.name];
-  }
-  formWelcomeSign.innerHTML = "HOLA " + formName.value;
-};
+// window.onload = () => {
+//   for (let key of formInputs) {
+//     if (localStorage[key.name]) key.value = localStorage[key.name];
+//   }
+//   formWelcomeSign.innerHTML = "HOLA " + formName.value;
+// };
 
 const formName = document.getElementById("name"); //ctrl+d selects the framed word
 const formEmail = document.getElementById("email");
 const formPassword = document.getElementById("password");
+const formConfirmPassword = document.getElementById("confirm-password");
 const formAge = document.getElementById("age");
 const formTelephone = document.getElementById("telephone");
 const formAddress = document.getElementById("address");
@@ -19,6 +20,7 @@ const formDni = document.getElementById("dni");
 const nameError = document.querySelector(".name-error");
 const emailError = document.querySelector(".email-error");
 const passwordError = document.querySelector(".password-error");
+const confirmPasswordError = document.querySelector(".confirm-password-error");
 const ageError = document.querySelector(".age-error");
 const telephoneError = document.querySelector(".tel-error");
 const addressError = document.querySelector(".address-error");
@@ -50,17 +52,14 @@ const nameValidator = () => {
     formName.value.length < 6 ||
     specialCharValidator(formName.value, 1, " ")
   ) {
-    let errorText = "Ingrese Nombre y Apellido";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
+    let errorText = "Ingrese Nombre y Apellido separados por un espacio";
     return (nameError.innerHTML = errorText);
   }
 };
 const emailValidator = () => {
   if (specialCharValidator(formEmail.value, 1, "@", ".")) {
-    let errorText = "Ingrese un formato de email válido";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
+    let errorText =
+      "Ingrese un formato de email válido, haciendo uso de '@' y '.'";
     return (emailError.innerHTML = errorText);
   }
 };
@@ -68,17 +67,19 @@ const passwordValidator = () => {
   if (formPassword.value < 8 || numAndCharValidator(formPassword.value)) {
     let errorText =
       "La contraseña debe contener números y letras con mas de ocho caracteres ";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
     return (passwordError.innerHTML = errorText);
+  }
+};
+const confirmPasswordValidator = () => {
+  if (formConfirmPassword.value !== formPassword.value) {
+    let errorText = "Los campos de contraseña no coinciden";
+    return (confirmPasswordError.innerHTML = errorText);
   }
 };
 const ageValidator = () => {
   if (formAge.value !== Math.round(formAge.value) && formAge.value < 18) {
     // Math.round works with strings
     let errorText = "Ingrese un número entero mayor a 18";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
     return (ageError.innerHTML = errorText);
   }
 };
@@ -86,8 +87,6 @@ const telephoneValidator = () => {
   if (formTelephone.value.length < 7 || isNaN(formTelephone.value)) {
     let errorText =
       "Ingrese 8 o más números sin espacios, paréntesis o guiones";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
     return (telephoneError.innerHTML = errorText);
   }
 };
@@ -97,25 +96,20 @@ const addressValidator = () => {
     specialCharValidator(formAddress.value, 1, " ") ||
     numAndCharValidator(formAddress.value)
   ) {
-    let errorText = "Ingrese una dirección y un número";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
+    let errorText =
+      "Ingrese una dirección y un número separados por un espacio";
     return (addressError.innerHTML = errorText);
   }
 };
 const cityValidator = () => {
   if (formCity.value.length < 3) {
-    let errorText = "Ingrese una ciudad válida";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
+    let errorText = "Ingrese una ciudad de al menos tres caracteres";
     return (cityError.innerHTML = errorText);
   }
 };
 const zipCodeValidator = () => {
   if (formZipCode.value.length < 3) {
     let errorText = "Ingrese un código postal válido";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
     return (zipCodeError.innerHTML = errorText);
   }
 };
@@ -124,9 +118,7 @@ const dniValidator = () => {
     (formDni.value.length !== 7 && formDni.value.length !== 8) ||
     isNaN(formDni.value)
   ) {
-    let errorText = "Ingrese un DNI válido";
-    modalText.innerText = errorText;
-    modalSign.className = "modal";
+    let errorText = "Ingrese un DNI de siete u ocho números";
     return (dniError.innerHTML = errorText);
   }
 };
@@ -134,6 +126,7 @@ const dniValidator = () => {
 formName.addEventListener("blur", nameValidator);
 formEmail.addEventListener("blur", emailValidator);
 formPassword.addEventListener("blur", passwordValidator);
+formConfirmPassword.addEventListener("blur", confirmPasswordValidator);
 formAge.addEventListener("blur", ageValidator);
 formTelephone.addEventListener("blur", telephoneValidator);
 formAddress.addEventListener("blur", addressValidator);
@@ -145,6 +138,7 @@ submitButton.addEventListener("click", submitForm);
 formName.addEventListener("focus", formCorrect); //focused by clicking or pressing tab
 formEmail.addEventListener("focus", formCorrect);
 formPassword.addEventListener("focus", formCorrect);
+formConfirmPassword.addEventListener("focus", formCorrect);
 formAge.addEventListener("focus", formCorrect);
 formTelephone.addEventListener("focus", formCorrect);
 formAddress.addEventListener("focus", formCorrect);
@@ -162,6 +156,7 @@ const errorFunctions = [
   nameValidator,
   emailValidator,
   passwordValidator,
+  confirmPasswordValidator,
   ageValidator,
   telephoneValidator,
   addressValidator,
@@ -174,6 +169,7 @@ function validateEverything() {
   for (let element of errorFunctions) {
     if (element()) error = error + "- " + element() + "\n"; // if no error in any input field, error = ''
   }
+  console.log(error);
   return error;
 }
 
@@ -184,6 +180,8 @@ function formCorrect(e) {
     emailError.innerHTML = "";
   } else if (e.target.id === "password") {
     passwordError.innerHTML = "";
+  } else if (e.target.id === "confirm-password") {
+    confirmPasswordError.innerHTML = "";
   } else if (e.target.id === "age") {
     ageError.innerHTML = "";
   } else if (e.target.id === "telephone") {
