@@ -1,3 +1,11 @@
+const formInputs = Array.from(document.getElementsByClassName("input"));
+window.onload = () => {
+  for (let key of formInputs) {
+    if (localStorage[key.name]) key.value = localStorage[key.name];
+  }
+  formWelcomeSign.innerHTML = "HOLA " + formName.value;
+};
+
 const formName = document.getElementById("name"); //ctrl+d selects the framed word
 const formEmail = document.getElementById("email");
 const formPassword = document.getElementById("password");
@@ -22,15 +30,20 @@ const formWelcomeSign = document.getElementById("welcome-sign");
 const modalSign = document.getElementById("modal");
 const modalText = document.getElementById("modal-text");
 const modalClose = document.getElementById("close-button");
-const formInputs = Array.from(document.getElementsByClassName("input"));
 const submitButton = document.getElementById("submit");
+const burgerLinks = document.getElementById("nav-links");
+const burger = document.getElementById("burger");
+burger.content = burgerLinks;
+burger.addEventListener("click", toggleShow);
 
-window.onload = () => {
-  for (let key of formInputs) {
-    if (localStorage[key.name]) key.value = localStorage[key.name];
+function toggleShow(tag) {
+  //it is necessary to add the content of the toggle
+  if (tag.currentTarget.content.style.display === "") {
+    tag.currentTarget.content.style.display = "flex";
+  } else {
+    tag.currentTarget.content.style.display = "";
   }
-  formWelcomeSign.innerHTML = "HOLA " + formName.value;
-};
+}
 
 const nameValidator = () => {
   if (
